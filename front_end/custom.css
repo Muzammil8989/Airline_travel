@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif !important;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('wp2574329-aeroplane-4k-wallpapers.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+.logo{
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #ccc;
+    animation: logoAnimation 2s infinite alternate;
+}
+@keyframes logoAnimation {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-5px);
+        }
+}
+.navbar {
+            background: transparent !important;
+}
+
+.navbar-nav {
+            margin: auto;
+}
+
+        .navbar-nav .nav-item {
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+.card{
+     background: rgba(0, 0, 0, 0.3) !important;
+     border: none !important;
+     color: white !important;
+     border-radius: 20px !important;    
+     max-width: 500px !important;  
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.card-header,.card-body{
+    border: none !important;
+    outline: none !important;
+}
+
+form{
+    padding: 5px !important; 
+}
+label{
+    margin-left: 10px; 
+}
+input{
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    outline: none !important;
+}
+input:focus{
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: white !important;
+    border-radius: 10px !important;
+    outline: none !important;
+    border: none !important;
+}
+input::placeholder{
+    color: rgb(138, 137, 137) !important;
+    
+}
+button{
+    margin-left: 5px !important;
+    padding: 10px 20px !important;
+    border-radius: 80px !important;
+}
+#eye-icon,#eye-icon-confirm{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+}
+.popup {
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 15px 40px 5px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+  margin: 5px 0px;
+  width: 80px;
+  height: 80px;
+  border: 3px solid #30e667;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  line-height: 80px;
+}
+
+.icon i.fas {
+  font-size: 36px;
+  color: #30e667;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 30px 0 10px;
+  color: #30e667;
+}
+
+.desc {
+  color: #777;
+  font-size: 16px;
+  margin: 10px auto;
+  line-height: 25px;
+}
+
+.dismiss-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: 2px solid #30e667;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #30e667;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dismiss-btn:hover {
+  background: #30e667;
+  color: #fff;
+}
+
+
+.dismiss-btn:focus {
+  outline: none;
+}
+.container {
+            margin-top: 50px;
+ }
+
+.table-responsive th, .table-responsive td {
+   text-align: center;
+   vertical-align: middle;
+   background-color: rgba(0, 0, 0, 0.3) !important ;
+   border: none !important;
+   color: white !important; 
+ }
+
+.btn-primary {
+ background-color: #007bff;
+ border-color: #007bff;
+}
+
+.btn-primary:hover {
+   background-color: #0056b3;
+   border-color: #0056b3;
+}
+.table-responsive::-webkit-scrollbar {
+            width: 12px;
+        }
+
+ .table-responsive::-webkit-scrollbar-thumb {
+            background-color: #6c757d;
+            border-radius: 10px;
+           border: 3px solid #f8f9fa;
+            }
+.table-responsive::-webkit-scrollbar-track {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: inset 0 0 5px grey;
+}
+footer{
+    background-color: rgba(0, 0, 0, 0.3) !important ;
+    border: none !important;
+    color: white !important;
+    height: 50px; 
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;  
+}
+#form {
+    padding: 20px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 10px !important;
+    max-width: 700px;
+    margin: 0 auto; /* Center the form horizontally */
+}
+#form h3{
+  border-bottom: 1px solid white;
+  padding: 10px ;
+}
+
+#input #input-group{
+    margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    align-items: center;
+    margin-left: 18px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3) !important ;
+}
+#input2 #input-group{
+    width: 193px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    align-items: center;
+    margin-left: 18px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3) !important ;
+    margin-top: 10px; 
+}
+#input3 #input-group{
+    width: 100px;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+.texts{
+    color: rgb(112, 162, 197) !important;
+    font-size: 16px;
+  
+
+}
+#input4 #input-group{
+    margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    align-items: center;
+    margin-left: 18px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3) !important ;
+
+}
+#input5 h3{
+    border-bottom: 1px solid #3399ff;
+    margin-top: 10px;
+    padding: 10px;
+   
+}
+#input6 #input-group{
+     margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    align-items: center;
+    margin-left: 18px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3) !important ;
+}
+ #generatePDF{
+    margin-top: 10px;
+    width: 150px;
+    border-radius: 10px !important;
+    margin-left: 18px !important; 
+}
+/* Responsive styling */
+@media (max-width: 768px) {
+    #form {
+        width: 90%;
+        height: auto; 
+    }
+
+
+}
+@media (max-width: 576px) {
+    #form {
+        width: 100%;
+        height: 100% ;
+    }
+    
+  
+}
+
+

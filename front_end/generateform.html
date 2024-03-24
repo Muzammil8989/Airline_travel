@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EagleWingsTravel</title>
+    <link rel="stylesheet" href="custom.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+ <style>
+.containers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        margin: 0;
+    }
+
+    table {
+        width: 100%;
+        max-width: 700px; /* Set a max-width for larger screens */
+        margin: auto;
+        border-collapse: collapse;
+        border: 2px solid #000000;
+        background-color: rgba(231, 225, 225, 0.3) !important;
+        table-layout: fixed; /* Set table layout to fixed */
+    }
+
+    th, td {
+        padding: 10px;
+        border: 2px solid #272626;
+        text-align: center;
+        width: 250px; /* Set a fixed width for the cells */
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    h1, h3 {
+        text-align: center;
+    }
+
+    #downloadButton {
+        position: absolute;
+        padding: 10px 20px;
+        border: 2px solid #30e667;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #30e667;
+        cursor: pointer;
+        bottom: 20px;
+        left: 10%;
+        transform: translateX(-20%);
+    }
+
+    #downloadButton:hover {
+        background: #30e667;
+        color: #fff;
+    }
+</style>    
+</head>
+<body>
+    <div class="container mt-5">
+   <h2 class="logo">EagleWingsTravel</h2>
+    </div>
+
+    
+ <div id="generatedTableContainer" class="containers">
+        <!-- The dynamically generated table will be inserted here -->
+    </div>
+
+<button id="downloadButton">Download PDF</button>
+<!-- Make sure these script tags are present and properly loaded before your script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+
+
+<script>
+
+
+    const downloadButton = document.getElementById('downloadButton');
+
+    downloadButton.addEventListener('click', () => {
+        const containers = document.getElementById('generatedTableContainer');
+        const opt = {
+            margin: 1,
+            filename: 'EagleWingsTravel.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf(containers, opt);
+
+
+
+      
+
+
+    });
+
+        // Retrieve data from localStorage
+        var formData = JSON.parse(localStorage.getItem('formData'));
+
+        // Function to generate the HTML table
+        function generateTable(data) {
+            var tableHTML = `
+                <table>
+                    <tr><td colspan="2"><h1>EagleWingsTravel</h1></td></tr>
+                    <tr><td colspan="2"><h3>Flight Details</h3></td></tr>
+                    <tr><td>From: ${data.from}</td><td>To: ${data.to}</td></tr>
+                    <tr><td>Date: ${data.date}</td><td>Time: ${data.time}</td></tr>
+                    <tr><td>Type: ${data.type}</td><td>Duration: ${data.duration}</td></tr>
+                    <tr><td>Airline: ${data.airline}</td><td>Price: ${data.price}</td></tr>
+                    <tr><td>Class:${data.classs}</td><td>Fare: ${data.fare}</td></tr>
+                    <tr><td colspan="2"><h3>Passenger Details</h3></td></tr>
+                    <tr><td>Name: ${data.name}</td><td>Email: ${data.email}</td></tr>
+                    <tr><td>Number: ${data.number}</td><td>Address: ${data.address}</td></tr>
+                </table>
+            `;
+
+            // Insert the table into the generatedTableContainer
+            var generatedTableContainer = document.getElementById('generatedTableContainer');
+            generatedTableContainer.innerHTML = tableHTML;
+        }
+
+        // Call the function with the retrieved data
+        generateTable(formData);
+   
+ 
+
+</script>
+
+</body>
+
+
+
+</body>
+</html>

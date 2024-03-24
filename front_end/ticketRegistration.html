@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>EagleWingsTravel Form</title>
+  <link rel="stylesheet" href="custom.css">
+  <style>
+    label {
+      font-weight: bold;
+      color:white;
+    }
+    .form-group {
+      margin-bottom: 10px;
+
+    }
+    form{
+      background-color: rgba(0, 0, 0, 0.3) !important;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 1000px;
+      margin: 0 auto;
+
+    }
+    .text-center{
+      color: white;
+    }
+    h3 {
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+ <div class="container mt-5">
+    <h2 class="logo">EagleWingsTravel</h2>
+    <div class="container" id="containers">
+      <form id="flightForm">
+        <h1 class="text-center">EagleWingsTravel</h1>
+    
+    <h3>Flight Details</h3>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        
+        <input type="text" class="form-control" id="from" placeholder="From">
+      </div>
+      <div class="form-group col-md-6">
+        
+        <input type="text" class="form-control" id="to" placeholder="To">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        
+        <input type="text" class="form-control" id="date" placeholder="Date">
+      </div>
+      <div class="form-group col-md-6">
+       
+        <input type="text" class="form-control" id="time" placeholder="Time">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      
+        <input type="text" class="form-control" id="type" placeholder="Type">
+      </div>
+      <div class="form-group col-md-6">
+      
+        <input type="text" class="form-control" id="duration" placeholder="Duration">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        
+        <input type="text" class="form-control" id="airline" placeholder="Airline">
+      </div>
+      <div class="form-group col-md-6">
+       
+        <input type="text" class="form-control" id="price" placeholder="Price">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        
+        <input type="text" class="form-control" id="class" placeholder="Class">
+      </div>
+      <div class="form-group col-md-6">
+        
+        <input type="text" class="form-control" id="fare" placeholder="Fare">
+      </div>
+    </div>
+    
+    <h3>Personal Details</h3>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        
+        <input type="text" class="form-control" id="name" placeholder="Name">
+      </div>
+      <div class="form-group col-md-6">
+       
+        <input type="email" class="form-control" id="email" placeholder="Email">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+       
+        <input type="text" class="form-control" id="number" placeholder="Number">
+      </div>
+      <div class="form-group col-md-6">
+     
+        <input type="text" class="form-control" id="address" placeholder="Address">
+      </div>
+    </div>
+    
+   <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+      </form>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+ async function submitForm() {
+    try {
+      var from = document.getElementById('from').value;
+      var to = document.getElementById('to').value;
+      var date = document.getElementById('date').value;
+      var time = document.getElementById('time').value;
+      var type = document.getElementById('type').value;
+      var duration = document.getElementById('duration').value;
+      var airline = document.getElementById('airline').value;
+      var price = document.getElementById('price').value;
+      var classs = document.getElementById('class').value;
+      var fare = document.getElementById('fare').value;
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var number = document.getElementById('number').value;
+      var address = document.getElementById('address').value;
+
+      var formData = {
+        from: from,
+        to: to,
+        date: date,
+        time: time,
+        type: type,
+        duration: duration,
+        airline: airline,
+        price: price,
+        classs: classs,
+        fare: fare,
+        name: name,
+        email: email,
+        number: number,
+        address: address
+      };
+
+      // Store the data in localStorage
+      localStorage.setItem('formData', JSON.stringify(formData));
+
+      const response = await fetch("http://localhost:3000/flightreservation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+
+        if (responseData.message) {
+          console.log("Success:", responseData.message);
+          window.location.href = "generateform.html";
+        } else {
+          console.error("Error: Invalid response data");
+        }
+      } else {
+        console.error("Error:", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+       
+
+
+  </script>
+
+
+
+</body>
+</html>
