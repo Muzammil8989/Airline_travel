@@ -161,7 +161,7 @@ function sendResetPasswordEmail(user, token) {
     secure: false,
     auth: {
       user: "eaglewingstravel872@gmail.com",
-      pass: "hkki qlof akho dfig", // Use the generated App Password here
+      pass: "", // Use the generated App Password here
     },
   });
 
